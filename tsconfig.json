@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "src/lib/nextauth.cofigts"  ],
   "exclude": ["node_modules"]
 }
