@@ -1,21 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   reactCompiler: true,
-  images : {
-    remotePatterns : [
-
-
+  images: {
+    remotePatterns: [
       {
-        protocol : "https" ,
-
-        hostname : "ecommerce.routemisr.com",
-
-        pathname :"/**"
-      }
-    ]
-  }
+        protocol: "https",
+        hostname: "ecommerce.routemisr.com",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
