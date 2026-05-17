@@ -7,8 +7,6 @@ export default async function middleware(req: NextRequest) {
 
     if (!jwt && (
         pathname.startsWith('/profile') || 
-        pathname.startsWith('/cart') || 
-        pathname.startsWith('/wishlist') || 
         pathname.startsWith('/orders') ||
         pathname.startsWith('/checkout') ||
         pathname.startsWith('/order')
@@ -28,8 +26,6 @@ export const config = {
         '/profile/:path*',
         '/login',
         '/register',
-        '/cart',
-        '/wishlist',
         '/orders/:path*',
         '/order',
         '/checkout',
