@@ -50,13 +50,18 @@ export default function LoginPage() {
         position: "top-center",
         richColors: true,
       });
-    } else {
+   } else {
       toast.success("Welcome Back!", {
         position: "top-center",
         richColors: true,
       });
-      // بنسيب الـ Loading شغال لحد ما الـ router يخلص نقله للهوم
-      router.push("/");
+
+      // جلب الـ callbackUrl من الـ URL
+      const searchParams = new URLSearchParams(window.location.search);
+      const callbackUrl = searchParams.get("callbackUrl") || "/";
+
+      // 🚀 البديل الصايع لـ router.push ومن غير ريفريش يدوي:
+      window.location.href = callbackUrl;
     }
   }
 
