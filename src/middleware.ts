@@ -8,19 +8,20 @@ export default async function middleware(req: NextRequest) {
     pathname.startsWith(route),
   );
 
- if (pathname.startsWith("/login") || pathname.startsWith("/register")) {
+  if (isProtected) {
     const sessionToken =
       req.cookies.get("_Secure-next-auth.session-token")?.value ||
       req.cookies.get("__Secure-next-auth.session-token")?.value ||
       req.cookies.get("next-auth.session-token")?.value;
 
-    if (sessionToken) {
-      return NextResponse.redirect(new URL("/", req.url));
+    if (!sessionToken) {
+      return NextResponse.redirect(new URL("/login", req.url));
     }
   }
 
   if (pathname.startsWith("/login") || pathname.startsWith("/register")) {
     const sessionToken =
+      req.cookies.get("_Secure-next-auth.session-token")?.value ||
       req.cookies.get("__Secure-next-auth.session-token")?.value ||
       req.cookies.get("next-auth.session-token")?.value;
 
